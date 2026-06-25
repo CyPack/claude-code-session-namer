@@ -89,11 +89,18 @@ python3 ~/.cc-session-namer/name_sessions.py --commit     # actually write (with
 - **Privacy.** `namer.log`, `skipped.txt`, the `work/` dir and any caches are
   `.gitignore`d — they can contain bits of your chats and must never be committed.
 
-## Requirements
+## Requirements & portability
 
 - Python 3.8+ (stdlib only).
 - The `claude` CLI on `PATH`, logged in (used in headless `-p` mode).
-- `cron` for scheduling (optional — you can run it manually).
+- A scheduler for automation (optional — you can run it manually).
+
+Built on **fish 4.6 + kitty + Fedora 44 + cron**, but nothing is tied to that:
+`name_sessions.py` is plain Python and shell/terminal-agnostic; `run-namer.sh`
+runs under `bash`. The only host-specific piece is the **scheduler** — `install.sh`
+uses `crontab`; on systemd-only hosts wrap `run-namer.sh` in a `systemd --user`
+timer, and on macOS use `launchd`/`cron`. An agent setting this up elsewhere should
+detect the host first ([`AGENTS.md`](AGENTS.md) Step 0).
 
 ## License
 
