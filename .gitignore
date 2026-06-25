@@ -1,0 +1,38 @@
+# ─────────────────────────────────────────────────────────────────────────
+# CREDENTIAL / PII GUARD — these may contain chat content, tokens or secrets.
+# NEVER commit them. This file is the first line of defense for a public repo.
+# ─────────────────────────────────────────────────────────────────────────
+*.log
+namer.log
+skipped.txt
+.lock
+work/
+*.db
+*.sqlite
+*.sqlite3
+.cache/
+
+# Secrets / environment
+.env
+.env.*
+*.pem
+*.key
+id_rsa*
+credentials.json
+.credentials.json
+rclone.conf
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.venv/
+venv/
+
+# OS / editor
+.DS_Store
+*.swp
+*~
+.idea/
+.vscode/
